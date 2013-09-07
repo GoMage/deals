@@ -1,0 +1,84 @@
+<?php
+ /**
+ * GoMage Sales and Deals Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2010-2011 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
+ * @terms of use http://www.gomage.com/terms-of-use
+ * @version      Release: 1.0
+ * @since        Class available since Release 1.0
+ */
+?>
+
+<?php $blocks = $this->getBlocks(); ?>
+
+<?php if (count($blocks)): ?>
+
+<?php foreach ($blocks as $block): ?>
+		
+    <div class="block gomage-sd gomage-sd-<?php echo $this->getPosition() ?>-<?php echo $block->getId() ?>">
+        <div class="block-title">
+             <strong><span><?php echo $block->getParam($this->getPosition(), 'title') ?></span></strong>
+        </div>
+        <div class="block-content">
+            <ol class="mini-products-list">
+            
+            	<?php $items = $block->getActiveItems() ?>
+            	<?php $item_count = (int)$block->getParam($this->getPosition(), 'count'); ?>
+            	<?php $ii = 0;?>
+            	
+                <?php foreach ($items as $item): ?>
+                
+                	<?php if ($ii >= $item_count) break; ?>
+                	
+                	<li class="item" id="sd-item-<?php echo $this->getPosition() ?>-<?php echo $item->getId() ?>">
+                		<?php if ($block->getParam($this->getPosition(), 'image')): ?>
+                			<a class="product-image" title="<?php echo $this->stripTags($item->getProduct()->getName(), null, true); ?>" href="<?php echo $this->getProductUrl($item->getProduct()); ?>">
+                				<img src="<?php echo $block->getImageUrl($item->getProduct(), $this->getPosition()); ?>" alt="<?php echo $this->stripTags($item->getProduct()->getName(), null, true); ?>" />
+                			</a>
+                		<?php endif; ?>
+                		
+                		<div class="product-details">
+                            <?php if ($block->getParam($this->getPosition(), 'prod_name')): ?>
+    							<a title="<?php echo $this->stripTags($item->getProduct()->getName(), null, true); ?>" href="<?php echo $this->getProductUrl($item->getProduct()); ?>">
+    								<span><?php echo $item->getProduct()->getName(); ?></span>
+    							</a>
+                    		<?php endif; ?>		
+                    		
+                    		<?php if ($block->getParam($this->getPosition(), 'price') || $block->getParam($this->getPosition(), 'special_price')): ?>
+                    		    <?php echo $this->getPriceBlock($item->getProduct(), $block) ?>
+                    		<?php endif; ?>
+                    		
+                    		<?php if(!$item->isDialEnd()): ?>
+                    			<button onclick="setLocation('<?php echo $this->getAddToCartUrl($item->getProduct()) ?>')" class="button btn-cart" title="<?php echo $this->__('Add to Cart') ?>" type="button"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    		<?php endif; ?>
+                		
+                		</div>
+    					
+    					
+                		<div class="product-details-after">
+                    		<?php if ($block->getParam($this->getPosition(), 'ticker')): ?>
+                    		
+                        		<?php echo $this->getTickerBlock()
+                                		           ->setBlock($block)
+                                		           ->setItem($item)
+                                		           ->setPosition($this->getPosition())
+                                		           ->toHtml(); 
+                        		?>
+                    		<?php endif; ?>            		            		
+                		</div>        		        		
+                		
+                	</li>        		        	
+                	<?php $ii++; ?>
+                <?php endforeach; ?>
+            </ol>
+            <div class="actions">
+            	<a class="gsd-vad" href="<?php echo $this->getUrl('bestdeals'); ?>"><?php echo $this->__('View All Deals') ?></a>
+            </div>
+        </div>
+    </div>   
+<?php endforeach; ?>
+
+<?php endif; ?>

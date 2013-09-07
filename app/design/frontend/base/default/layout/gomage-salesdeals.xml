@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * GoMage Sales and Deals Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2010-2011 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
+ * @terms of use http://www.gomage.com/terms-of-use
+ * @version      Release: 1.0
+ * @since        Class available since Release 1.0
+ */
+ -->
+<layout version="1.0">
+    <default>        
+        <reference name="left">
+             <block type="gomage_salesdeals/blocks" name="gomage.salesdeals.blocks.sidebar.left" before="-">             	
+             	<action method="setPosition"><position>left</position></action>
+             </block>	 
+        </reference>
+        <reference name="right">
+             <block type="gomage_salesdeals/blocks" name="gomage.salesdeals.blocks.sidebar.right" before="-">             	
+             	<action method="setPosition"><position>right</position></action>             	             	
+             </block>	 
+        </reference>
+        <reference name="content">
+             <block type="gomage_salesdeals/blocks" name="gomage.salesdeals.blocks.top" before="-">
+             	<action method="setPosition"><position>top</position></action>
+             </block>	              	             	
+        </reference>
+        <reference name="head">    	    		    		    		    	        		    		      		     		
+    		<action method="addJs"><script>gomage/salesdeals.js</script></action>
+			<action method="addItem"><type>skin_css</type><name>css/gomage/salesdeals.css</name><params/></action>
+			<block type="gomage_salesdeals/header" name="gomage.salesdeals.header"/>
+    	</reference>	
+    </default>
+    
+    <catalog_product_view>
+    	<reference name="product.info.extrahint">
+    		<block type="gomage_salesdeals/product_ticker" name="gomage.salesdeals.product.ticker" />
+    	</reference>    	
+    </catalog_product_view>	
+        
+    <gomage_salesdeals_index_index translate="label">    	
+		<label>All Deals</label> 					
+		<reference name="root">			
+            <action method="setTemplate"><template>page/3columns.phtml</template></action>             
+        </reference>                						
+        <reference name="left">
+            <remove name="gomage.salesdeals.blocks.sidebar.left" /> 
+            <block type="catalog/layer_view" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+        </reference>
+        <reference name="right">
+            <remove name="gomage.salesdeals.blocks.sidebar.right" /> 
+        </reference>    
+		<reference name="content">
+			<remove name="gomage.salesdeals.blocks.top" />
+			<block type="gomage_salesdeals/form_all" name="product_list" template="gomage/salesdeals/all.phtml">				
+				<block type="catalog/product_list_toolbar" name="gomage.salesdeals.all.toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="page/html_pager" name="product_list_toolbar_pager"/>
+				</block>
+				<action method="setToolbarBlockName"><name>gomage.salesdeals.all.toolbar</name></action>
+			</block>
+		</reference> 	
+		<reference name="head">
+			<action method="setTitle"><title>All Deals</title></action>
+		</reference>
+	</gomage_salesdeals_index_index>
+</layout>

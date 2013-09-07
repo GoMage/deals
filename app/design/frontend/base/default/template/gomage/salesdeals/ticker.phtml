@@ -1,0 +1,112 @@
+<?php
+ /**
+ * GoMage Sales and Deals Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2010-2011 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
+ * @terms of use http://www.gomage.com/terms-of-use
+ * @version      Release: 1.0
+ * @since        Class available since Release 1.0
+ */
+?>
+<div id="salesdeals-ticker-<?php echo $this->getItemId() ?>" class="gsalesdeals-ticker">
+	<?php if ($this->getItem()->isShowTicker()): ?>
+	
+		<?php if ($this->getBlockParam('ticker_text')): ?>
+			<span class="gsd-att"><?php echo $this->getBlockParam('ticker_text') ?></span>
+		<?php endif; ?>
+				
+    	<table class="salesdeals-ticker-table">
+    		<col />
+    		<?php if (!in_array($this->getTickerParam('format'), array(5))): ?><col width="1" /><?php endif; ?>
+    		<?php if (!in_array($this->getTickerParam('format'), array(0, 1, 4, 5))): ?><col width="1" /><?php endif; ?>
+    		<col width="1" />
+    		<?php if (!in_array($this->getTickerParam('format'), array(0))): ?><col width="1" /><?php endif; ?>
+    		<?php if (!in_array($this->getTickerParam('format'), array(3, 4))): ?><col width="1" /><?php endif; ?>
+    		<?php if (!in_array($this->getTickerParam('format'), array(0, 3, 4))): ?><col width="1" /><?php endif; ?>
+    		<col width="1" />
+    		<col />
+    		<tr>
+    			<td>&nbsp;</td>
+    			<td class="gsd-ticker-day <?php if ($this->getTickerParam('format') == 5): ?>gsd-nodisplay<?php endif; ?>">
+    				<div class="gsd-ticker-tc">
+    					<?php if ($this->getTickerParam('day') && in_array($this->getTickerParam('day_position'), array('left', 'top')))  : ?>
+    						<span class="gsd-dsp gsd-dsp-<?php echo $this->getTickerParam('day_position'); ?>"><?php echo $this->getTickerParam('days_text') ?></span>
+    					<?php endif; ?>
+    					<span class="gsd-dt" id="salesdeals-ticker-day-<?php echo $this->getItemId() ?>"></span>
+    					<?php if ($this->getTickerParam('day') && in_array($this->getTickerParam('day_position'), array('right', 'bottom')))  : ?>        											
+    						<span class="gsd-dsp gsd-dsp-<?php echo $this->getTickerParam('day_position'); ?>"><?php echo $this->getTickerParam('days_text') ?></span>
+    					<?php endif; ?>
+    				</div>
+    			</td>
+    			<td class="gsd-separater <?php if (in_array($this->getTickerParam('format'), array(0, 1, 4, 5))): ?>gsd-nodisplay<?php endif; ?>">
+    				<div class="gsd-ticker-tc"><span>:</span></div>
+    			</td>
+    			<td class="gsd-ticker-hour">
+    				<div class="gsd-ticker-tc">
+    					<?php if ($this->getTickerParam('time') && in_array($this->getTickerParam('time_position'), array('left', 'top')))  : ?>
+    						<span class="gsd-tsp gsd-tsp-<?php echo $this->getTickerParam('time_position'); ?>"><?php echo $this->getTickerParam('hours_text') ?></span>
+    					<?php endif; ?>
+    					<span class="gsd-dt" id="salesdeals-ticker-hour-<?php echo $this->getItemId() ?>"></span>
+    					<?php if ($this->getTickerParam('time') && in_array($this->getTickerParam('time_position'), array('right', 'bottom')))  : ?>
+    						<span class="gsd-tsp gsd-tsp-<?php echo $this->getTickerParam('time_position'); ?>"><?php echo $this->getTickerParam('hours_text') ?></span>
+    					<?php endif; ?>
+    				</div>
+    			</td>
+    			<td class="gsd-separater <?php if ($this->getTickerParam('format') == 0): ?>gsd-nodisplay<?php endif; ?>">
+    				<div class="gsd-ticker-tc"><span>:</span></div>
+    			</td>
+    			<td class="gsd-ticker-min">
+    				<div class="gsd-ticker-tc">
+    					<?php if ($this->getTickerParam('time') && in_array($this->getTickerParam('time_position'), array('left', 'top')))  : ?>
+    						<span class="gsd-tsp gsd-tsp-<?php echo $this->getTickerParam('time_position'); ?>"><?php echo $this->getTickerParam('minutes_text') ?></span>
+    					<?php endif; ?>
+    					<span class="gsd-dt" id="salesdeals-ticker-min-<?php echo $this->getItemId() ?>"></span>
+    					<?php if ($this->getTickerParam('time') && in_array($this->getTickerParam('time_position'), array('right', 'bottom')))  : ?>
+    						<span class="gsd-tsp gsd-tsp-<?php echo $this->getTickerParam('time_position'); ?>"><?php echo $this->getTickerParam('minutes_text') ?></span>
+    					<?php endif; ?>
+    				</div>
+    			</td>
+    			<td class="gsd-separater <?php if (in_array($this->getTickerParam('format'), array(0, 3, 4))): ?>gsd-nodisplay<?php endif; ?>">
+    				<div class="gsd-ticker-tc"><span>:</span></div>
+    			</td>
+    			<td class="gsd-ticker-sec <?php if (in_array($this->getTickerParam('format'), array(3, 4))): ?>gsd-nodisplay<?php endif; ?>">
+    				<div class="gsd-ticker-tc">
+    					<?php if ($this->getTickerParam('time') && in_array($this->getTickerParam('time_position'), array('left', 'top')))  : ?>
+    						<span class="gsd-tsp gsd-tsp-<?php echo $this->getTickerParam('time_position'); ?>"><?php echo $this->getTickerParam('seconds_text') ?></span>
+    					<?php endif; ?>
+    					<span class="gsd-dt" id="salesdeals-ticker-sec-<?php echo $this->getItemId() ?>"></span>
+    					<?php if ($this->getTickerParam('time') && in_array($this->getTickerParam('time_position'), array('right', 'bottom')))  : ?>
+    						<span class="gsd-tsp gsd-tsp-<?php echo $this->getTickerParam('time_position'); ?>"><?php echo $this->getTickerParam('seconds_text') ?></span>
+    					<?php endif; ?>
+    				</div>
+    			</td>
+    			<td>&nbsp;</td>
+    		</tr>
+    	</table>
+    	<script type="text/javascript">
+            //<![CDATA[
+                new GomageSalesdealsTicker(<?php echo $this->getTickerCongig() ?>);
+            //]]>
+        </script>
+	<?php endif; ?>
+	
+	<?php if ($this->getItem()->isDialEnd() && $this->getItem()->getData('display_end_message')): ?>
+    	<strong class="gsd-end-message"><?php echo $this->getItem()->getData('end_message') ?></strong>
+    <?php endif; ?>	
+    
+    <?php if (!$this->getItem()->isDialEnd()): ?>		
+    	<?php if ($this->getBlockParam('bought_qty')): ?>
+    		<strong class="gsd-bought"><span><?php echo $this->getItem()->getBoughtQty() ?> <?php echo $this->__('Bought') ?></span></strong>
+    	<?php endif; ?>
+    	        					
+    	<?php if ($this->getBlockParam('rem_qty_text')): ?>
+    		<strong class="gsd-remain-text"><span><?php echo $this->getBlockParam('rem_qty_text') ?></span></strong>
+    		<?php if ($this->getBlockParam('rem_qty')): ?>        					
+    			<strong class="gsd-remain-qty"><span><?php echo $this->getItem()->getRemaininQty() ?> <?php echo $this->__('item(s) left') ?></span></strong>
+    		<?php endif; ?>                       				                       				
+    	<?php endif; ?>
+    <?php endif; ?>
+</div>

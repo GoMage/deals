@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * GoMage Sales and Deals Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2010-2011 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
+ * @terms of use http://www.gomage.com/terms-of-use
+ * @version      Release: 1.0
+ * @since        Class available since Release 1.0
+ */
+ -->
+<layout version="1.0">
+	<default>
+		<reference name="head">    		
+    		<action method="addJs"><script>jscolor/jscolor.js</script></action>
+    		<action method="addJs"><script>jscolor/jscolor/jscolor.js</script></action>
+    	</reference>
+    </default>
+    <gomage_salesdeals_adminhtml_items_index>    	
+        <reference name="content">
+            <block type="gomage_salesdeals/adminhtml_items" name="gomage_salesdeals.admin.items" />
+        </reference>
+    </gomage_salesdeals_adminhtml_items_index>    
+    <gomage_salesdeals_adminhtml_items_edit>
+    	<update handle="editor"/>
+    	<reference name="head">    	
+    		<action method="addJs"><script>gomage/salesdeals-admin.js</script></action>    		
+    	</reference> 
+    </gomage_salesdeals_adminhtml_items_edit>
+    <gomage_salesdeals_adminhtml_items_new>
+    	<update handle="editor"/>
+    	<reference name="head">    	
+    		<action method="addJs"><script>gomage/salesdeals-admin.js</script></action>       	  		
+    	</reference>	        
+    </gomage_salesdeals_adminhtml_items_new>     	     
+    <gomage_salesdeals_adminhtml_blocks_index>    	
+        <reference name="content">
+            <block type="gomage_salesdeals/adminhtml_blocks" name="gomage_salesdeals.admin.blocks" />    
+        </reference>
+    </gomage_salesdeals_adminhtml_blocks_index>    
+    <gomage_salesdeals_adminhtml_blocks_edit>
+    	<update handle="editor"/>
+    	<reference name="head">    	
+    		<action method="addJs"><script>gomage/salesdeals-admin.js</script></action>    		
+    	</reference> 
+    	<reference name="left">
+            <block type="gomage_salesdeals/adminhtml_store_switcher" name="store_switcher" before="-"></block>            
+        </reference>
+    </gomage_salesdeals_adminhtml_blocks_edit>
+    <gomage_salesdeals_adminhtml_blocks_new>
+    	<update handle="editor"/>
+    	<reference name="head">    	
+    		<action method="addJs"><script>gomage/salesdeals-admin.js</script></action>       	  		
+    	</reference>
+    	<reference name="left">
+            <block type="gomage_salesdeals/adminhtml_store_switcher" name="store_switcher" before="-"></block>            
+        </reference>	        
+    </gomage_salesdeals_adminhtml_blocks_new>
+</layout>

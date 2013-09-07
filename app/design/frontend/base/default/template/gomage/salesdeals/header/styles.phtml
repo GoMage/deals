@@ -1,0 +1,219 @@
+<?php
+ /**
+ * GoMage Sales and Deals Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2010-2011 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
+ * @terms of use http://www.gomage.com/terms-of-use
+ * @version      Release: 1.0
+ * @since        Class available since Release 1.0
+ */
+?>
+<style type="text/css">
+	
+	<?php foreach ($this->getBlocks() as $block): ?>
+	
+		<?php 
+		    if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR)			
+			    $position = 'left'; 
+		    else 	
+			    $position = 'top';
+	    ?>
+
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>				
+        	.gomage-sd-left-<?php echo $block->getId() ?> .block-content, 
+        	.gomage-sd-right-<?php echo $block->getId() ?> .block-content
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .block-content
+	    <?php endif;?>
+		{
+    		<?php if($_color = $block->getParam($position, 'bg_color')):?>
+    			background:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;
+    		<?php endif;?>
+    	}
+    
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+        	.gomage-sd-left-<?php echo $block->getId() ?> .block-title, 
+        	.gomage-sd-right-<?php echo $block->getId() ?> .block-title
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .block-title
+	    <?php endif;?>
+		{
+    		<?php if($_color = $block->getParam($position, 'title_bg_color')):?>
+    			background:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;   
+    		<?php endif;?>			
+    	}
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+    		.gomage-sd-left-<?php echo $block->getId() ?> .block-title strong span, 
+        	.gomage-sd-right-<?php echo $block->getId() ?> .block-title strong span
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .block-title strong span
+	    <?php endif;?>
+		{
+			<?php if($_color = $block->getParam($position, 'title_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;   
+    		<?php endif;?>
+		}
+    
+
+    	<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>	
+        	.gomage-sd-left-<?php echo $block->getId() ?>, 
+        	.gomage-sd-right-<?php echo $block->getId() ?>
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?>
+	    <?php endif;?>
+		{
+    		<?php if($_color = $block->getParam($position, 'border_color')):?>
+    			border-color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;    		
+    		<?php endif;?>    
+    		<?php if($_width = (int)$block->getParam($position, 'border_size')):?>
+    			border-width:<?php echo $_width?>px;
+    		<?php endif;?>
+    	}
+    
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+    		.gomage-sd-left-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-dsp,
+    		.gomage-sd-right-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-dsp
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-dsp
+	    <?php endif;?>
+		{
+			<?php if($_size = (int)$block->getTickerParam($position, 'day_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>
+			<?php if($_color = $block->getTickerParam($position, 'symbols_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;   
+    		<?php endif;?>	
+		}
+		
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+    		.gomage-sd-left-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-tsp,
+    		.gomage-sd-right-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-tsp
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-tsp
+	    <?php endif;?>
+		{
+			<?php if($_size = (int)$block->getTickerParam($position, 'time_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>
+			<?php if($_color = $block->getTickerParam($position, 'symbols_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;   
+    		<?php endif;?>	
+		}
+    
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+        	.gomage-sd-left-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-dt,
+        	.gomage-sd-right-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-dt
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-ticker-tc .gsd-dt
+	    <?php endif;?>
+		{
+    		<?php if($_color = $block->getTickerParam($position, 'digits_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;
+    		<?php endif;?>
+    		<?php if($_color = $block->getTickerParam($position, 'digits_bg_color')):?>
+    			background:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;
+    		<?php endif;?>
+            <?php if($_size = (int)$block->getTickerParam($position, 'digits_font_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>
+    		<?php if($_family = $block->getTickerParam($position, 'digits_font')):?>
+    			font-family:<?php echo Mage::helper('gomage_salesdeals')->formatFontFamily($_family);?>;
+    		<?php endif;?>	    
+    	}
+
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+        	.gomage-sd-left-<?php echo $block->getId() ?> .gsd-att,
+        	.gomage-sd-right-<?php echo $block->getId() ?> .gsd-att
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-att
+	    <?php endif;?>
+		{    		
+            <?php if($_size = (int)$block->getParam($position, 'ticker_text_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>	    
+    	}
+
+		<?php if ($block->getDisplay() == GoMage_Salesdeals_Model_Adminhtml_System_Config_Source_Display::SIDEBAR): ?>
+        	.gomage-sd-left-<?php echo $block->getId() ?> .gsd-remain-text span,
+			.gomage-sd-left-<?php echo $block->getId() ?> .gsd-remain-qty span,
+        	.gomage-sd-right-<?php echo $block->getId() ?> .gsd-remain-text span,
+			.gomage-sd-right-<?php echo $block->getId() ?> .gsd-remain-qty span,
+			.gomage-sd-left-<?php echo $block->getId() ?> .gsd-end-message,
+			.gomage-sd-right-<?php echo $block->getId() ?> .gsd-end-message
+		<?php else: ?>	
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-remain-text span,
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-remain-qty span,
+			.gomage-sd-top-<?php echo $block->getId() ?> .gsd-end-message
+	    <?php endif;?>
+		{    		
+            <?php if($_size = (int)$block->getParam($position, 'rem_qty_text_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>	    
+    	}
+	
+	<?php endforeach; ?>
+
+	<?php $item = $this->getDealItem(); ?>
+	<?php if ($item): ?>	
+
+		#salesdeals-ticker-product-ticker-<?php echo $item->getId() ?> 
+		{
+    		<?php if($_color = $item->getData('bg_color')):?>
+    			background:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;
+    		<?php endif;?>
+            <?php if($_color = $item->getData('border_color')):?>
+    			border-color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;    		
+    		<?php endif;?>    
+    		<?php if($_width = (int)$item->getData('border_size')):?>
+    			border-width:<?php echo $_width?>px;
+				border-style:solid;				
+    		<?php endif;?>
+    	}
+
+		#salesdeals-ticker-product-ticker-<?php echo $item->getId() ?>	.gsd-ticker-tc .gsd-dsp	    
+		{
+			<?php if($_size = (int)$item->getData('day_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>
+			<?php if($_color = $item->getData('symbols_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;   
+    		<?php endif;?>	
+		}
+				
+		#salesdeals-ticker-product-ticker-<?php echo $item->getId() ?> .gsd-ticker-tc .gsd-tsp	    
+		{
+			<?php if($_size = (int)$item->getData('time_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>
+			<?php if($_color = $item->getData('symbols_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;   
+    		<?php endif;?>	
+		}
+    		
+		#salesdeals-ticker-product-ticker-<?php echo $item->getId() ?> .gsd-ticker-tc .gsd-dt	    
+		{
+    		<?php if($_color = $item->getData('digits_color')):?>
+    			color:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;
+    		<?php endif;?>
+    		<?php if($_color = $item->getData('digits_bg_color')):?>
+    			background:<?php echo Mage::helper('gomage_salesdeals')->formatColor($_color);?>;
+    		<?php endif;?>
+            <?php if($_size = (int)$item->getData('digits_font_size')):?>
+    			font-size:<?php echo $_size;?>px;
+    		<?php endif;?>
+    		<?php if($_family = $item->getData('digits_font')):?>
+    			font-family:<?php echo Mage::helper('gomage_salesdeals')->formatFontFamily($_family);?>;
+    		<?php endif;?>	    
+    	}
+	<?php endif; ?>
+</style>
+
+<script type="text/javascript">
+//<![CDATA[
+	var gomage_sales_deals_refresh = '<?php echo $this->getUrl('bestdeals/index/tickerrefresh') ?>';
+	var gds_current_time = <?php echo $this->getCurrentTime() ?>; 
+//]]>
+</script>

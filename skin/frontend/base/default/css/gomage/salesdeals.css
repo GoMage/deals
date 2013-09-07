@@ -1,0 +1,65 @@
+.gomage-sd .mini-products-list .product-image{
+	width:auto;
+	float:left;
+	border:1px solid #A9A9A9;
+	margin:0 10px 10px 0;
+}
+.gomage-sd .mini-products-list .product-details{
+	margin:0 0 5px;
+}
+.gomage-sd .product-details-after{
+	clear:both;
+	text-align:center;
+}
+.gomage-sd .actions a{
+	float:right;
+}
+.gsalesdeals-ticker table{
+	width:100%;
+}
+.gsalesdeals-ticker table td{
+	white-space:nowrap;
+	padding:0 2px;
+	text-align:center;
+  vertical-align:middle;
+}
+.gsalesdeals-ticker table td.gsd-separater{
+	padding:0;
+}
+.gsalesdeals-ticker table td .gsd-ticker-tc{
+	font-size:0;
+	line-height:0;
+	letter-spacing:-1px;
+	white-space:nowrap;
+}
+.gsalesdeals-ticker table td .gsd-ticker-tc span{
+	font-size:12px;
+	line-height:normal;
+	letter-spacing:normal;	
+	display:inline;
+}
+.gsalesdeals-ticker .gsd-dsp-top,
+.gsalesdeals-ticker .gsd-tsp-top,
+.gsalesdeals-ticker .gsd-dsp-bottom,
+.gsalesdeals-ticker .gsd-tsp-bottom{
+	display:block !important;
+}
+.gsalesdeals-ticker table td.gsd-nodisplay{
+	display:none;
+	overflow:hidden;
+}
+.gomage-sd .gsd-bought,
+.gomage-sd .gsd-remain-text,
+.gomage-sd .gsd-remain-qty{
+  display:block;
+  text-align:center;
+}
+.clearfix:after {
+	content:' ';
+	clear:both;
+	display:block;
+	width:0; 
+	height:0;
+	overflow:hidden;
+	font-size:0;
+}
