@@ -4,11 +4,11 @@
  * GoMage Sales and Deals Extension
  *
  * @category     Extension
- * @copyright    Copyright (c) 2010-2011 GoMage (http://www.gomage.com)
+ * @copyright    Copyright (c) 2010-2015 GoMage (http://www.gomage.com)
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
+ * @version      Release: 1.1
  */
  -->
 <config>
@@ -29,7 +29,7 @@
             <show_in_store>1</show_in_store>
             <groups>
 				<salesdeals translate="label">
-					<label>GoMage Sales and Deals</label>
+					<label>GoMage Sales and Deals v.1.1</label>
 					<frontend_type>text</frontend_type>
 					<sort_order>30</sort_order>
 					<show_in_default>1</show_in_default>
