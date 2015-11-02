@@ -9,9 +9,9 @@
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
  * @version      Release: 1.1
- * @since        Class available since Release 1.0
+ * @since        Class available since Release 1.2
  */
-class GoMage_Salesdeals_Adminhtml_ItemsController extends Mage_Adminhtml_Controller_Action
+class GoMage_Salesdeals_Adminhtml_Gomage_Salesdeals_ItemsController extends Mage_Adminhtml_Controller_Action
 {
 
     protected function _isAllowed()

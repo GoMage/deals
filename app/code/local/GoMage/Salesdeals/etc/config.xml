@@ -37,13 +37,13 @@
     </frontend>
     <admin>
         <routers>
-			<gomage_salesdeals>
-				<use>admin</use>
-				<args>
-					<module>GoMage_Salesdeals</module>
-					<frontName>gomage_salesdeals</frontName>
-				</args>
-			</gomage_salesdeals>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <gomage_salesdeals before="Mage_Adminhtml">GoMage_Salesdeals_Adminhtml</gomage_salesdeals>
+                    </modules>
+                </args>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>
@@ -81,17 +81,17 @@
 					<gomage_salesdeals> 
 						<title>Sales and Deals</title>
 						<sort_order>20</sort_order>           
-						<action>gomage_salesdeals/adminhtml_items</action>
+						<action>adminhtml/gomage_salesdeals_items</action>
 						<children>
 							<gomage_manage_salesdeals>
 								<title>Manage Deals</title>
 								<sort_order>10</sort_order>
-								<action>gomage_salesdeals/adminhtml_items</action>
+								<action>adminhtml/gomage_salesdeals_items</action>
 							</gomage_manage_salesdeals>
 							<gomage_manage_deal_blocks>
 								<title>Manage Deal Blocks</title>
 								<sort_order>20</sort_order>
-								<action>gomage_salesdeals/adminhtml_blocks</action>
+								<action>adminhtml/gomage_salesdeals_blocks</action>
 							</gomage_manage_deal_blocks>
 						</children>	
 					</gomage_salesdeals> 
